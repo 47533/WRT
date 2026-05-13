@@ -1,17 +1,9 @@
-#设备平台
-CONFIG_TARGET_qualcommax=y
-CONFIG_TARGET_qualcommax_ipq50xx=y
-#设备列表
-CONFIG_TARGET_DEVICE_qualcommax_ipq50xx_DEVICE_cmcc_mr3000d-ci=y
-#科学插件调整
-CONFIG_PACKAGE_luci-app-homeproxy=y
 #增加插件
 CONFIG_PACKAGE_luci-app-autoreboot=y
 CONFIG_PACKAGE_luci-app-gecoosac=y
 CONFIG_PACKAGE_luci-app-mini-diskmanager=y
 CONFIG_PACKAGE_luci-app-partexp=y
 CONFIG_PACKAGE_luci-app-samba4=y
-CONFIG_PACKAGE_luci-app-tailscale=y
 CONFIG_PACKAGE_luci-app-upnp=y
 CONFIG_PACKAGE_luci-app-wolplus=y
 #删除插件
@@ -31,6 +23,7 @@ CONFIG_PACKAGE_kmod-bonding=y
 CONFIG_PACKAGE_kmod-dsa=y
 CONFIG_PACKAGE_kmod-dummy=y
 CONFIG_PACKAGE_kmod-fs-btrfs=y
+CONFIG_PACKAGE_kmod-fs-ksmbd=y
 CONFIG_PACKAGE_kmod-fuse=y
 CONFIG_PACKAGE_kmod-inet-diag=y
 CONFIG_PACKAGE_kmod-inet-mptcp-diag=y
@@ -90,12 +83,15 @@ CONFIG_PACKAGE_coremark=y
 CONFIG_PACKAGE_cpufreq=y
 CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_dmesg=y
+CONFIG_PACKAGE_exfat-fsck=y
+CONFIG_PACKAGE_exfat-mkfs=y
 CONFIG_PACKAGE_fdisk=y
 CONFIG_PACKAGE_gdisk=y
 CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_iperf3=y
 CONFIG_PACKAGE_ip-full=y
 CONFIG_PACKAGE_libimobiledevice=y
+CONFIG_PACKAGE_libnvme=y
 CONFIG_PACKAGE_lsblk=y
 CONFIG_PACKAGE_luci-base=y
 CONFIG_PACKAGE_luci-compat=y
@@ -105,13 +101,64 @@ CONFIG_PACKAGE_luci-lua-runtime=y
 CONFIG_PACKAGE_luci-proto-relay=y
 CONFIG_PACKAGE_mmc-utils=y
 CONFIG_PACKAGE_nand-utils=y
+CONFIG_PACKAGE_nvme-cli=y
 CONFIG_PACKAGE_openssh-keygen=y
 CONFIG_PACKAGE_openssh-sftp-server=y
 CONFIG_PACKAGE_openssl-util=y
 CONFIG_PACKAGE_proto-bonding=y
 CONFIG_PACKAGE_sfdisk=y
 CONFIG_PACKAGE_sgdisk=y
+CONFIG_PACKAGE_smartmontools=y
+CONFIG_PACKAGE_smartmontools-drivedb=y
 CONFIG_PACKAGE_usb-modeswitch=y
 CONFIG_PACKAGE_usbmuxd=y
 CONFIG_PACKAGE_usbutils=y
 CONFIG_PACKAGE_xz-utils=y
+
+# ====================== 修复：AdGuardHome 强制编译 ======================
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_adguardhome=y
+
+# ====================== 修复：Docker 完整核心依赖（必开，否则不编译） ======================
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_dockerd=y
+CONFIG_PACKAGE_docker-compose=y          # 可选，但强烈建议
+CONFIG_PACKAGE_luci-lib-docker=y         # 通常会自动拉取
+
+# ====================== 新增：QuickFile + 通用文件管理 ======================
+CONFIG_PACKAGE_luci-app-quickfile=y
+CONFIG_PACKAGE_luci-app-filemanager=y
+
+# ====================== 必选插件 ======================
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_mosdns=y
+CONFIG_PACKAGE_v2dat=y
+CONFIG_PACKAGE_luci-app-openclash=y
+CONFIG_PACKAGE_luci-app-passwall2=y
+CONFIG_PACKAGE_passwall2=y
+
+# ====================== Argon 主题 ======================
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-argon-config=y
+CONFIG_LUCI_DEFAULT_THEME="argon"
+
+# ====================== SWAP 虚拟内存 必需依赖 ======================
+CONFIG_KERNEL_SWAP=y
+CONFIG_PACKAGE_swap-utils=y
+CONFIG_PACKAGE_block-mount=y
+CONFIG_PACKAGE_e2fsprogs=y
+# ====================== Docker 必需内核依赖（IPQ60XX 亚瑟专用） ======================
+CONFIG_PACKAGE_kmod-br-netfilter=y
+CONFIG_PACKAGE_kmod-veth=y
+CONFIG_PACKAGE_kmod-dummy=y
+CONFIG_PACKAGE_kmod-nf-ipvs=y
+CONFIG_PACKAGE_kmod-crypto-acompress=y
+CONFIG_PACKAGE_kmod-crypto-blake2b=y
+CONFIG_PACKAGE_kmod-crypto-xxhash=y
+CONFIG_PACKAGE_kmod-lib-xxhash=y
+CONFIG_PACKAGE_kmod-lib-zstd=y
+CONFIG_PACKAGE_nftables=y
+CONFIG_PACKAGE_iptables-nft=y
+CONFIG_PACKAGE_ip6tables-nft=y
+CONFIG_PACKAGE_iptables-mod-extra=y
