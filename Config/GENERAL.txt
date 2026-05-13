@@ -121,6 +121,10 @@ CONFIG_PACKAGE_adguardhome=y
 
 # ====================== 修复：Docker 完整核心依赖（必开，否则不编译） ======================
 CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_dockerd=y
+CONFIG_PACKAGE_docker-compose=y          # 可选，但强烈建议
+CONFIG_PACKAGE_luci-lib-docker=y         # 通常会自动拉取
 
 # ====================== 新增：QuickFile + 通用文件管理 ======================
 CONFIG_PACKAGE_luci-app-quickfile=y
