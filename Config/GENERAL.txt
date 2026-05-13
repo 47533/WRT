@@ -116,3 +116,31 @@ CONFIG_PACKAGE_usb-modeswitch=y
 CONFIG_PACKAGE_usbmuxd=y
 CONFIG_PACKAGE_usbutils=y
 CONFIG_PACKAGE_xz-utils=y
+
+# ====================== 追加：你的核心需求插件（无冲突，全自动编译） ======================
+# AdGuardHome 全套
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_adguardhome=y
+
+# MosDNS v5 全套
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_mosdns=y
+CONFIG_PACKAGE_v2dat=y
+
+# OpenClash 全套
+CONFIG_PACKAGE_luci-app-openclash=y
+
+# Passwall2 全套
+CONFIG_PACKAGE_luci-app-passwall2=y
+CONFIG_PACKAGE_passwall2=y
+
+# Docker 完整套件（含依赖，编译不报错）
+CONFIG_PACKAGE_luci-app-dockerman=y
+CONFIG_PACKAGE_docker=y
+CONFIG_PACKAGE_docker-compose=y
+CONFIG_PACKAGE_dockerd=y
+
+# ====================== 追加：Argon 主题 + 默认主题设置（修正语法，开机默认生效） ======================
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-argon-config=y
+CONFIG_LUCI_DEFAULT_THEME="argon"
