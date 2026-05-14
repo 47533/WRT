@@ -45,14 +45,12 @@ chmod +x ./files/etc/init.d/swap_mmc27
 chmod +x ./files/etc/hotplug.d/block/99-swap-mmc27
 # ---------------------------------------------------------------------------
 
-
 # ====================== 内置 AdGuardHome 核心 (aarch64) ======================
 echo "正在下载 AdGuardHome 核心..."
 mkdir -p ./files/usr/bin
 wget -qO- https://static.adguard.com/adguardhome/release/AdGuardHome_linux_arm64.tar.gz | \
 tar -xz -C ./files/usr/bin --strip-components=2 AdGuardHome/AdGuardHome
 chmod +x ./files/usr/bin/AdGuardHome
-
 
 # ====================== 内置 OpenClash 核心 (mihomo - 推荐) ======================
 echo "正在下载 OpenClash mihomo 核心..."
