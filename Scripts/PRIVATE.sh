@@ -56,4 +56,20 @@ wget -qO- $AGH_CORE | tar xOvz > files/usr/bin/AdGuardHome/AdGuardHome
 chmod +x files/usr/bin/AdGuardHome/AdGuardHome
 
 echo "AdGuardHome核心已内置完成！"
+
+# ====================== 内置 OpenClash 核心 (mihomo) ======================
+echo "正在下载 OpenClash mihomo 核心 (arm64)..."
+
+mkdir -p ./files/etc/openclash/core
+
+# 方法一：直接使用稳定版（推荐）
+# wget -q https://github.com/MetaCubeX/mihomo/releases/download/v1.19.24/mihomo-linux-arm64-v1.19.24.gz -O - | gunzip > ./files/etc/openclash/core/mihomo
+
+# 方法二：使用 Alpha 最新版（如果你想要最新功能，可取消注释）
+wget -q "$(curl -s https://api.github.com/repos/MetaCubeX/mihomo/releases/latest | grep 'browser_download_url' | grep 'linux-arm64' | head -n1 | cut -d '"' -f 4)" -O - | gunzip > ./files/etc/openclash/core/mihomo
+
+chmod +x ./files/etc/openclash/core/mihomo
+
+# 可选：同时内置 clash_meta 名称（OpenClash 部分版本更认这个名字）
+cp ./files/etc/openclash/core/mihomo ./files/etc/openclash/core/clash_meta
 echo "==== 私有扩展执行完毕 ===="
