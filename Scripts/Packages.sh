@@ -54,7 +54,8 @@ UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "passwall2" "Openwrt-Passwall/openwrt-passwall2" "main" "pkg"
 
 # ====================== 新增：AdGuardHome（你的需求） ======================
-UPDATE_PACKAGE "luci-app-adguardhome" "kongfl888/luci-app-adguardhome" "master"
+# UPDATE_PACKAGE "luci-app-adguardhome" "kongfl888/luci-app-adguardhome" "master"
+UPDATE_PACKAGE "luci-app-adguardhome" "rufengsuixing/luci-app-adguardhome" "master"
 
 # ====================== 新增：Docker 管理插件（你的需求） ======================
 # UPDATE_PACKAGE "dockerman" "lisaac/luci-app-dockerman" "master" "pkg"
