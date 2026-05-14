@@ -54,10 +54,10 @@ UPDATE_PACKAGE "passwall" "Openwrt-Passwall/openwrt-passwall" "main" "pkg"
 UPDATE_PACKAGE "passwall2" "Openwrt-Passwall/openwrt-passwall2" "main" "pkg"
 
 # ====================== 新增：AdGuardHome（你的需求） ======================
-UPDATE_PACKAGE "adguardhome" "rufengsuixing/luci-app-adguardhome" "master" "pkg"
+UPDATE_PACKAGE "adguardhome" "rufengsuixing/luci-app-adguardhome" "master"
 
 # ====================== 新增：Docker 管理插件（你的需求） ======================
-UPDATE_PACKAGE "dockerman" "lisaac/luci-app-dockerman" "master" "pkg"
+# UPDATE_PACKAGE "dockerman" "lisaac/luci-app-dockerman" "master" "pkg"
 
 # ====================== 原有保留插件 ======================
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
