@@ -64,9 +64,6 @@ function generate_config() {
   # skb recycler
   enable_skb_recycler "$config_file"
 
-  # 内核大小
-  set_kernel_size
-
   # kernel 6.18 perf config
   pin_arm_perf_kernel_config
 
