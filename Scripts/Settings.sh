@@ -41,16 +41,6 @@ function pin_arm_perf_kernel_config() {
 EOF
 }
 
-########################################
-# 修改内核大小
-########################################
-
-function set_kernel_size() {
-
-  for file in target/linux/qualcommax/image/*.mk; do
-    sed -i 's/KERNEL_SIZE := [0-9]*k/KERNEL_SIZE := 12288k/g' "$file"
-  done
-
 }
 
 ########################################
