@@ -19,9 +19,9 @@ echo "AdGuardHome核心已内置完成！"
 echo "下载 Clash 核心..."
 mkdir -p ./files/etc/openclash/core
 
-wget -q --no-check-certificate -O- https://github.com/MetaCubeX/mihomo/releases/download/v1.18.3/mihomo-linux-arm64.tar.gz | tar -xz -C ./files/etc/openclash/core/
+wget -q --no-check-certificate -O- https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz | tar -xz -C ./files/etc/openclash/core/
 
-chmod +x ./files/etc/openclash/core/mihomo
+chmod +x ./files/etc/openclash/core/clash_meta
 
 echo "==== Clash 核心已内置完成 ===="
 
