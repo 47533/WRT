@@ -41,42 +41,6 @@ function pin_arm_perf_kernel_config() {
 EOF
 }
 
-########################################
-# 生成最终 .config
-########################################
-
-function generate_config() {
-
-  config_file=".config"
-
-  cat "$GITHUB_WORKSPACE/Config/${WRT_CONFIG}.txt" \
-      "$GITHUB_WORKSPACE/Config/GENERAL.txt" > "$config_file"
-
-  local target=$(echo "$WRT_ARCH" | cut -d'_' -f2)
-
-  # 删除 WIFI
-  if [[ "$WRT_CONFIG" == *"NOWIFI"* ]]; then
-    remove_wifi "$target"
-  fi
-
-  # skb recycler
-  enable_skb_recycler "$config_file"
-
-  # kernel 6.18 perf config
-  pin_arm_perf_kernel_config
-
-}
-
-########################################
-# 执行生成 config
-########################################
-
-generate_config
-
-########################################
-# Luci / 系统修改
-########################################
-
 #移除luci-app-attendedsysupgrade
 sed -i "/attendedsysupgrade/d" $(find ./feeds/luci/collections/ -type f -name "Makefile")
 #修改默认主题
