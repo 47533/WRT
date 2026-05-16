@@ -23,8 +23,7 @@ CONFIG_PACKAGE_dockerd=y
 CONFIG_PACKAGE_docker-compose=y          # 可选，但强烈建议
 CONFIG_PACKAGE_luci-lib-docker=y         # 通常会自动拉取
 
-# ====================== 新增：QuickFile + 通用文件管理 ======================
-CONFIG_PACKAGE_luci-app-quickfile=y
+# ====================== 新增：通用文件管理 ======================
 CONFIG_PACKAGE_luci-app-filemanager=y
 
 # ====================== 必选插件 ======================
