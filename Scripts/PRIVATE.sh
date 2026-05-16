@@ -5,7 +5,7 @@ echo "==== 执行私有扩展：亚瑟专用配置（内置核心）===="
 
 # ====================== 内置 AdGuardHome 核心 (aarch64) ======================
 echo "正在下载 AdGuardHome 核心..."
-mkdir -p files/usr/bin/AdGuardHome/AdGuardHome
+mkdir -p files/usr/bin/AdGuardHome
 
 AGH_CORE=$(curl -sL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/latest | grep /AdGuardHome_linux_${1} | awk -F '"' '{print $4}')
 
