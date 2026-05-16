@@ -9,7 +9,7 @@ mkdir -p files/usr/bin/AdGuardHome
 
 AGH_CORE=$(curl -sL https://api.github.com/repos/AdguardTeam/AdGuardHome/releases/latest | grep /AdGuardHome_linux_${1} | awk -F '"' '{print $4}')
 
-wget -qO- $AGH_CORE | tar xOvz > files/usr/bin/AdGuardHome/AdGuardHome
+wget -qO- "$AGH_CORE" | tar xz -C files/usr/bin/AdGuardHome/
 
 chmod +x files/usr/bin/AdGuardHome/AdGuardHome
 
@@ -19,9 +19,9 @@ echo "AdGuardHome核心已内置完成！"
 echo "下载 Clash 核心..."
 mkdir -p ./files/etc/openclash/core
 
-wget -q --no-check-certificate -O- https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz | tar -xz -C ./files/etc/openclash/core/
+wget -q --no-check-certificate -O- https://github.com/MetaCubeX/mihomo/releases/download/v1.18.3/mihomo-linux-arm64.tar.gz | tar -xz -C ./files/etc/openclash/core/
 
-chmod +x ./files/etc/openclash/core/clash
+chmod +x ./files/etc/openclash/core/mihomo
 
 echo "==== Clash 核心已内置完成 ===="
 
