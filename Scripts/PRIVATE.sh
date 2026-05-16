@@ -11,6 +11,6 @@ chmod +x ./files/usr/bin/AdGuardHome/AdGuardHome
 echo "内置 Clash 核心..."
 mkdir -p ./files/etc/openclash/core
 wget -q --no-check-certificate -O- https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz | tar -xz -C ./files/etc/openclash/core/
-chmod +x ./files/etc/openclash/core/clash
+chmod +x ./files/etc/openclash/core/clash_meta
 
 echo "==== 执行完成 ===="
