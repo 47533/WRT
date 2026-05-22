@@ -9,10 +9,6 @@ CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_re-ss-01=y
 CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_adguardhome=y
 
-# ====================== adblock去广告 ======================
-luci-app-adblock-fast=y
-luci-i18n-adblock-fast-zh-cn=y
-
 # ====================== 启用 Lucky ======================
 CONFIG_PACKAGE_luci-app-lucky=y
 
