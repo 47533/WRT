@@ -44,6 +44,7 @@ UPDATE_PACKAGE() {
 
 # ====================== 主题：仅保留 Argon（你的需求） ======================
 # UPDATE_PACKAGE "argon" "sbwml/luci-theme-argon" "openwrt-25.12"
+UPDATE_PACKAGE "shadcn" "eamonxg/luci-theme-shadcn" "main"
 UPDATE_PACKAGE "aurora" "eamonxg/luci-theme-aurora" "master"
 UPDATE_PACKAGE "aurora-config" "eamonxg/luci-app-aurora-config" "master"
 # UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "master"
