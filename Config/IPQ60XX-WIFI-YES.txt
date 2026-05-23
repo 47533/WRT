@@ -5,6 +5,11 @@ CONFIG_TARGET_qualcommax_ipq60xx=y
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_re-cs-02=y
 CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_jdcloud_re-ss-01=y
 
+# ====================== DAWN漫游弱信号剔除 ======================
+CONFIG_PACKAGE_dawn=y
+CONFIG_PACKAGE_luci-app-dawn=y
+luci-i18n-dawn-zh-cn=y
+
 # ====================== 修复：AdGuardHome 强制编译 ======================
 CONFIG_PACKAGE_luci-app-adguardhome=y
 CONFIG_PACKAGE_adguardhome=y
