@@ -88,6 +88,17 @@ UPDATE_PACKAGE "timecontrol" "sirpdboy/luci-app-timecontrol" "main"
 UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "axonhub gecoosac sing-box luci-app-homeproxy luci-app-timewol luci-app-wolplus luci-app-wolultra"
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
+# ====================== IPQ60XX：QuickStart / iStoreX ======================
+if [[ "${WRT_CONFIG:-}" == IPQ60XX* ]]; then
+	UPDATE_PACKAGE "quickstart" "kenzok8/small-package" "main" "pkg"
+	UPDATE_PACKAGE "luci-app-quickstart" "kenzok8/small-package" "main" "pkg"
+	UPDATE_PACKAGE "luci-app-store" "kenzok8/small-package" "main" "pkg"
+	UPDATE_PACKAGE "luci-app-istorex" "kenzok8/small-package" "main" "pkg"
+	UPDATE_PACKAGE "taskd" "kenzok8/small-package" "main" "pkg"
+	UPDATE_PACKAGE "luci-lib-taskd" "kenzok8/small-package" "main" "pkg"
+	UPDATE_PACKAGE "luci-lib-xterm" "kenzok8/small-package" "main" "pkg"
+fi
+
 #更新软件包版本
 UPDATE_VERSION() {
 	local PKG_NAME=$1

@@ -256,3 +256,42 @@ if [ -f "$RUST_FILE" ]; then
 		echo "rust fix failed; continuing!"
 	fi
 fi
+
+# IPQ60XX：修复 QuickStart / iStore，并移除上游冲突包
+if [[ "${WRT_CONFIG:-}" == IPQ60XX* ]]; then
+	QS_LUA="$(find "$PKG_PATH" -maxdepth 4 -path '*/luci-app-quickstart/luasrc/controller/istore_backend.lua' -print -quit 2>/dev/null)"
+	QS_MK="$(find "$PKG_PATH" -maxdepth 2 -type f -wholename '*/quickstart/Makefile' -print -quit 2>/dev/null)"
+
+	if [ -f "$QS_LUA" ]; then
+		echo " "
+		if curl -fsSL --retry 3 --retry-all-errors --connect-timeout 10 --max-time 30 \
+			-o "$QS_LUA" \
+			"https://gist.githubusercontent.com/puteulanus/1c180fae6bccd25e57eb6d30b7aa28aa/raw/istore_backend.lua"; then
+			echo "quickstart istore_backend.lua has been fixed!"
+		else
+			echo "quickstart istore_backend.lua fix failed; continuing!"
+		fi
+	fi
+
+	if [ -f "$QS_MK" ]; then
+		echo " "
+		if sed -i \
+			-e '/^[[:space:]]*DEPENDS:=/,/^[[:space:]]*URL:=/ s/[[:space:]]*+smartmontools-drivedb//g' \
+			-e '/^[[:space:]]*DEPENDS:=/,/^[[:space:]]*URL:=/ s/[[:space:]]*+smartmontools//g' \
+			-e '/^[[:space:]]*DEPENDS:=/,/^[[:space:]]*URL:=/ s/[[:space:]]*+smartd//g' \
+			-e '/^[[:space:]]*DEPENDS:=/,/^[[:space:]]*URL:=/ s/[[:space:]]*+mdadm//g' \
+			-e '/^[[:space:]]*DEPENDS:=/,/^[[:space:]]*URL:=/ s/[[:space:]]*+parted//g' \
+			-e '/^[[:space:]]*DEPENDS:=/,/^[[:space:]]*URL:=/ s/[[:space:]]*+e2fsprogs//g' \
+			"$QS_MK"; then
+			echo "quickstart storage deps have been trimmed!"
+		else
+			echo "quickstart Makefile fix failed; continuing!"
+		fi
+	fi
+
+	if [ -d "$PKG_PATH/../package/istore" ]; then
+		echo " "
+		rm -rf "$PKG_PATH/../package/istore"
+		echo "upstream package/istore removed!"
+	fi
+fi
